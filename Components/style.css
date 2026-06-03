@@ -1,0 +1,415 @@
+:root {
+    --color-1: rgb(180, 180, 180);
+    --color-2: white;
+    --color-3: rgb(220, 220, 220);
+    --color-4: white;
+    --color-5: black;
+}
+
+.dark-theme {
+    --color-1: black;
+    --color-2: rgb(20, 20, 20);
+    --color-3: rgb(30, 30, 30);
+    --color-4: rgb(50, 50, 50);
+    --color-5: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-5);
+    transition: 0.3s ease-in-out;
+}
+
+html,body{
+    height: 100%;
+    background-color: var(--color-1);
+}
+
+body{
+    height: 100vh;
+}
+
+
+header{
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-3);
+    box-shadow: 3px 0 10px ;
+    z-index: 10;
+}
+
+#search-task{
+    background-color: var(--color-4);
+    width: 30%;
+    height: 30px;
+}
+
+#add-task-display{
+    background-color: var(--color-4);
+    height: 30px;
+    width: 100px;
+}
+
+.layout{
+    flex: 1;
+}
+
+aside{
+    width: 60px;
+    padding: 50px 0;
+    transition: 0.3s ease-in-out;
+    background-color: var(--color-3);
+}
+
+
+aside:hover{
+    width: 160px;
+}
+
+nav{
+    height: 100%;
+}
+
+aside button{
+    gap: 10px;
+    width: 130px;
+    height: 40px;
+    margin: 10px;
+}
+
+.user-profile{
+    width: 40px;
+}
+
+aside img{
+    width: 30px;
+}
+
+.btn-label{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 0.5s;
+}
+
+aside:hover .btn-label{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.callendar{
+    position: relative;
+}
+
+.callendar-display{
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-160px);
+    opacity: 0;
+    z-index: -1;
+    transition: ease-in-out 0.5s;
+}
+
+.callendar-display iframe{
+    box-shadow: 5px 0 100px var(--color-5),
+                -5px 0 100px var(--color-5)
+}
+
+.callendar:hover .callendar-display{
+    z-index: 10;
+    opacity: 1;
+    transform: translateX(160px);
+
+}
+
+.theme-icon{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.theme-toggle-icon{
+    width: 20px;
+    height: 20px;
+    filter: invert(0);
+    transition: 0.3s;
+}
+
+.theme-changer-container{
+    width: 130px;
+    height: 40px;
+    margin: 10px;
+    display: flex;
+}
+
+.theme-changer{
+    width: 100px;
+    height: 35px;
+    background: linear-gradient(to right, white, black);
+    border-radius: 20px;
+    border: 1px solid;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 0.5s;
+    position: relative;
+}
+
+.theme-toggle{
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+}
+
+aside:hover .theme-icon{
+    opacity: 0;
+    transform: translateX(-70px);
+}
+
+aside:hover .theme-changer{
+    opacity: 1;
+    transform: translateX(-30px);
+}
+
+.toggle-theme-changer{
+    transform: translateX(65px);
+}
+
+
+main{
+    flex: 1;
+    overflow-y: auto;
+}
+
+
+.information{
+    margin: 10px;
+}
+
+.info-container{
+    margin: 10px;
+    gap: 30px;
+}
+
+.info-container div{
+    width: 200px;
+    height: 100px;
+    align-content: center;
+    border-radius: 25px;
+    padding-left: 20px;
+    background-color: var(--color-3);
+}
+
+.main-tasks{
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+main>section{
+    padding: 10px;
+}
+
+.task{
+    border-radius: 15px;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+    background-color: var(--color-4);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.tasks-container{
+    margin: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+
+.task li{
+    list-style: none;
+}
+
+.task-header{
+    gap: 5px;
+    
+}
+
+.star-icon{
+    width: 15px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.task-button-container{
+    padding: 10px;
+}
+
+.task-button-container button{
+    width: 20px;
+    height: 20px;
+}
+
+.task-button-container img{
+    width: 18px;
+}
+
+.section-header img{
+    width: 20px;
+}
+
+.recent-tasks-container, .favourite-tasks-container{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: var(--color-3);
+} 
+
+.component-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+
+.add-task-component{
+    position: relative;
+    width: 50%;
+    height: max-content;
+    padding: 50px 0;
+    background: var(--color-3);
+    border-radius: 30px;
+}
+
+.add-task-close-button{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.add-task-close-button img{
+    width: 25px;
+}
+
+.add-task-component span{
+    width: 70px;
+    height: 1px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    border: 1px solid var(--color-5);
+}
+
+.add-task-component input{
+    margin-bottom: 10px;
+    background-color: var(--color-3);
+}
+
+#task-form{
+    width: 50%;
+}
+
+#task-title, #dynamic-field input{
+    width: 100%;
+    height: 30px;
+    background-color: var(--color-2);
+}
+
+#task-form h4{
+    margin-bottom: 10px;
+}
+
+#dynamic-field input{
+    width: 80%;
+}
+
+#dynamic-field textarea{
+    width: 100%;
+    height: 100px;
+    padding-top: 10px;
+    background-color: var(--color-2);
+    resize: none;
+}
+
+#dynamic-field>div{
+    margin-bottom: 10px;
+}
+
+#add-quest{
+    width: 15%;
+    height: 30px;
+    margin-left: 5%;
+    background-color: var(--color-2);
+}
+
+#add-quest img{
+    width: 20px;
+    vertical-align: middle;
+}
+
+.delete-quest{
+    width: max-content;
+    height: max-content;
+    margin-right: 5.5%;
+    vertical-align: middle;
+    right: 0;
+}
+
+.delete-quest img{
+    width: 20px;
+}
+
+#add-new-task{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: var(--color-2);
+}
+
+#new-quest{
+    margin-bottom: 0;
+}
+
+body.dark-theme img{
+    filter: invert(1);
+}
+
+
+/* Container styling */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* 1. Hide the default HTML checkbox entirely */
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* 2. Default State: Show empty box, hide filled box */
+.custom-checkbox .check-empty {
+    display: block;
+    width: 15px; /* Adjust to your image size */
+}
+.custom-checkbox .check-filled {
+    display: none;
+    width: 15px;
+}
+
+/* 3. Checked State: Hide empty box, show filled box */
+.custom-checkbox input[type="checkbox"]:checked ~ .check-empty {
+    display: none;
+}
+.custom-checkbox input[type="checkbox"]:checked ~ .check-filled {
+    display: block;
+}

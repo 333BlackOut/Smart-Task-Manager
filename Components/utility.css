@@ -1,0 +1,62 @@
+.grid{
+    display: grid;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.space-around{
+    justify-content: space-around;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.invert{
+    filter: invert(1);
+}
+
+.btn{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.input{
+    border: none;
+    outline: none;
+    background: none;
+    border-radius: 15px;
+    padding-left: 10px;
+}

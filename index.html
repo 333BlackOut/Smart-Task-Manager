@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks Manager</title>
+    <link rel="stylesheet" href="Components/style.css" />
+    <link rel="stylesheet" href="Components/utility.css" />
+  </head>
+
+  <body class="flex-col">
+    <header class="flex-row space-around align-center">
+      <div data-section="dashboard" class="pointer">Tasks Manager</div>
+      <input
+        type="search"
+        id="search-task"
+        class="input"
+        placeholder="Search"
+      />
+      <button id="add-task-display" class="btn">Add Task</button>
+    </header>
+    <div class="component-overlay flex-row center hidden">
+      <section class="add-task-component flex-col center">
+        <div class="add-task-close-button pointer">
+          <img src="./Assets/close-button-round.svg" alt="" />
+        </div>
+        <h2>Add New Task</h2>
+        <span></span>
+        <form id="task-form" action="">
+          <h4>Enter Title</h4>
+          <input
+            type="text"
+            placeholder="Task Title"
+            id="task-title"
+            class="input"
+            required
+          />
+
+          <h4>Task Type</h4>
+          <input
+            type="radio"
+            name="task-type"
+            id="task-list"
+            value="list"
+            checked
+          />
+          <label for="list">List</label>
+          <input type="radio" name="task-type" id="task-text" value="text" />
+          <label for="text">Text</label>
+
+          <div id="dynamic-field"></div>
+
+          <button type="submit" id="add-new-task" class="btn">Add Task</button>
+        </form>
+      </section>
+    </div>
+    <div class="layout flex-row">
+      <aside>
+        <nav class="flex-col space-between">
+          <div>
+            <button class="btn flex-row align-center user-profile">
+              <img src="./Assets/user-profile-1.svg" alt="" />
+              <p class="btn-label">User</p>
+            </button>
+          </div>
+          <ul>
+            <li>
+              <button
+                data-section="dashboard"
+                class="btn flex-row align-center"
+              >
+                <img src="./Assets/home-house-notfilled-1.svg" alt="" />
+                <p class="btn-label">Dashboard</p>
+              </button>
+            </li>
+            <li>
+              <button
+                data-section="all-tasks"
+                class="btn flex-row align-center"
+              >
+                <img src="./Assets/menu-dashboard-notfilled.svg" alt="" />
+                <p class="btn-label">All Tasks</p>
+              </button>
+            </li>
+            <li>
+              <button
+                data-section="favourites"
+                class="btn flex-row align-center"
+              >
+                <img src="./Assets/circle-star.svg" alt="" />
+                <p class="btn-label">Favourites</p>
+              </button>
+            </li>
+            <li>
+              <button
+                data-section="in-progress"
+                class="btn flex-row align-center"
+              >
+                <img src="./Assets/circle-wait-clock.svg" alt="" />
+                <p class="btn-label">In Progress</p>
+              </button>
+            </li>
+            <li>
+              <button data-section="backlog" class="btn flex-row align-center">
+                <img src="./Assets/circle-stop-warning.svg" alt="" />
+                <p class="btn-label">BackLog</p>
+              </button>
+            </li>
+            <li>
+              <button
+                data-section="completed"
+                class="btn flex-row align-center"
+              >
+                <img src="./Assets/circle-tick -check-complete-1.svg" alt="" />
+                <p class="btn-label">Completed</p>
+              </button>
+            </li>
+          </ul>
+          <div>
+            <div class="callendar">
+              <button class="btn flex-row align-center">
+                <img src="./Assets/callender-1.svg" alt="" />
+                <p class="btn-label">Callendar</p>
+              </button>
+              <div class="callendar-display">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?src=61f75f42a95552f2a913cc7c1eaac1a45ebe35780492d45245e490ae05949324%40group.calendar.google.com&ctz=Asia%2FKolkata"
+                  style="border: 1"
+                  width="500"
+                  height="300"
+                  frameborder="0"
+                  scrolling="no"
+                ></iframe>
+              </div>
+            </div>
+            <div class="theme-changer-container">
+              <img src="Assets/sun-2.svg" class="theme-icon" alt="" />
+              <div class="theme-changer pointer">
+                <div class="theme-toggle btn">
+                  <img
+                    src="Assets/sun-2.svg"
+                    class="theme-toggle-icon"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main id="main-container">
+        <section id="dashboard">
+          <section class="information">
+            <h2>Information</h2>
+            <div class="info-container flex-row"></div>
+          </section>
+
+          <section class="main-tasks grid">
+            <section class="recent-tasks-container">
+              <div class="section-header flex-row space-between">
+                <h2>Recent Tasks</h2>
+                <img
+                  data-section="all-tasks"
+                  src="./Assets/arrow-right-lined.svg"
+                  class="pointer"
+                  alt=""
+                />
+              </div>
+              <div class="recent-tasks tasks-container grid"></div>
+            </section>
+
+            <section class="favourite-tasks-container">
+              <div class="section-header flex-row space-between">
+                <h2>Favourite Tasks</h2>
+                <img
+                  data-section="favourites"
+                  src="/Assets/arrow-right-lined.svg"
+                  class="pointer"
+                  alt=""
+                />
+              </div>
+              <div class="fav-tasks tasks-container grid"></div>
+            </section>
+          </section>
+        </section>
+
+        <section id="all-tasks" class="hidden">
+          <h2>All Tasks</h2>
+          <div class="all-tasks tasks-container grid"></div>
+        </section>
+        <section id="favourites" class="hidden">
+          <h2>Favourite Tasks</h2>
+          <div class="favourite-tasks tasks-container grid"></div>
+        </section>
+        <section id="in-progress" class="hidden">
+          <h2>In-Progress Tasks</h2>
+          <div class="in-progress-tasks tasks-container grid"></div>
+        </section>
+        <section id="backlog" class="hidden">
+          <h2>BackLog Tasks</h2>
+          <div class="backlog-tasks tasks-container grid"></div>
+        </section>
+        <section id="completed" class="hidden">
+          <h2>Completed Tasks</h2>
+          <div class="completed-tasks tasks-container grid"></div>
+        </section>
+      </main>
+    </div>
+    <script src="Components/newscript.js"></script>
+  </body>
+</html>
