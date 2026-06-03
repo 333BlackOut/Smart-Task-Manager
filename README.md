@@ -1,6 +1,6 @@
 # 📝 Smart Task Manager
 
-**Live Demo:** [Insert Your GitHub Pages Link Here]
+**Live Demo:** `https://333blackout.github.io/Smart-Task-Manager/`
 
 ### The Power of Core Fundamentals
 While modern libraries and frameworks like React, TypeScript, Bootstrap, and Tailwind are incredible tools, relying on them too early can mask a lack of foundational knowledge. 
